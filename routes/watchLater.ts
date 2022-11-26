@@ -8,7 +8,7 @@ import mongoose from "mongoose";
 const User: mongoose.Model<UserInterface> = mongoose.model("User");
 
 /**
- * This handler adds/removes a video to watchlater.
+ * This handler adds/removes a video to/from watchlater.
  * send POST Request at /user/watchlater
  * body contains {videoId}
  * */

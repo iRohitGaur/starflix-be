@@ -92,8 +92,6 @@ router.post(
 router.put("/user/playlist", privateRoute, (req: MyUserRequest, res) => {
   const { playlistId, videoId }: PlaylistVideo = req.body;
 
-  console.log(playlistId, videoId);
-
   if (!playlistId || !videoId) {
     return res.status(422).json({ error: "all fields are required" });
   }
@@ -119,8 +117,6 @@ router.put("/user/playlist", privateRoute, (req: MyUserRequest, res) => {
   )
     .populate("owner", "_id name")
     .exec((err, result) => {
-      console.log("err res", err, result);
-
       if (err) {
         return res
           .status(422)

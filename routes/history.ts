@@ -77,7 +77,7 @@ router.delete("/user/history", privateRoute, (req: MyUserRequest, res) => {
 
 /**
  * This handler removes all videos from history.
- * send DELETE Request at /user/history
+ * send DELETE Request at /user/history/all
  * */
 router.delete("/user/history/all", privateRoute, (req: MyUserRequest, res) => {
   // RG: Middleware `privateRoute` adds the authenticated user to `req.user`. Remove password field
