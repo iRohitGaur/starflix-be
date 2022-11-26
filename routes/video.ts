@@ -2,7 +2,33 @@ import express from "express";
 const router = express.Router();
 
 /**
- * Videos Database can be added here.
+ * Category Data can be added here.
+ * You can add category of your wish with different attributes
+ * */
+
+const categories = [
+  {
+    _id: "9fde9f72-ef52-4560-bb15-68d826c96f40",
+    categoryName: "birdsound",
+    categoryImage:
+      "https://res.cloudinary.com/irohitgaur/image/upload/v1648280506/birdsound_nr8yet.png",
+  },
+  {
+    _id: "1a3f8069-b15a-4c4d-976f-f092215483c6",
+    categoryName: "documentary",
+    categoryImage:
+      "https://res.cloudinary.com/irohitgaur/image/upload/v1648280506/documentary_qeb5t7.png",
+  },
+  {
+    _id: "978f8de0-845e-4fb3-bb0b-a49caa177171",
+    categoryName: "birdfact",
+    categoryImage:
+      "https://res.cloudinary.com/irohitgaur/image/upload/v1648280506/birdfact_k40rfd.png",
+  },
+];
+
+/**
+ * Videos Data can be added here.
  * You can add videos of your wish with different attributes
  * */
 
@@ -381,5 +407,11 @@ router.get("/videos", (req, res) => {
   const shuffledVideos = videos.sort(() => Math.random() - 0.5);
   return res.status(200).json(shuffledVideos);
 });
+
+/**
+ * This handler returns the categories.
+ * send GET Request at /categories
+ * */
+router.get("/categories", (req, res) => res.status(200).json(categories));
 
 export { router as videoRoutes };
