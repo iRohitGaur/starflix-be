@@ -47,7 +47,7 @@ const videos = [
     featured: true,
     channelName: "Wildlife World",
     channelThumbnail:
-      "https://yt3.ggpht.com/4ZVdcB6kl7cC02-Z-_685X7R9eFdNnXjhaABDYGWEecyHMnMzEHHqoAgownw476VPYLv6F2fvg=s176-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/45VIs0-IhYFq1kKstIQF3SzvgJdUJqSz42Zn50ljUWdwwZ4MeUtwUDwnJwM7lx8kxumV12OK=s176-c-k-c0x00ffffff-no-rj",
     channelLink: "https://www.youtube.com/channel/UCqrg-CrSVAjTYCy4f6LBD4g",
     subscribers: "292K",
     description:
@@ -67,7 +67,7 @@ const videos = [
     featured: false,
     channelName: "Wildlife World",
     channelThumbnail:
-      "https://yt3.ggpht.com/4ZVdcB6kl7cC02-Z-_685X7R9eFdNnXjhaABDYGWEecyHMnMzEHHqoAgownw476VPYLv6F2fvg=s176-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/45VIs0-IhYFq1kKstIQF3SzvgJdUJqSz42Zn50ljUWdwwZ4MeUtwUDwnJwM7lx8kxumV12OK=s176-c-k-c0x00ffffff-no-rj",
     channelLink: "https://www.youtube.com/channel/UCqrg-CrSVAjTYCy4f6LBD4g",
     subscribers: "292K",
     description:
@@ -87,7 +87,7 @@ const videos = [
     featured: false,
     channelName: "Wildlife World",
     channelThumbnail:
-      "https://yt3.ggpht.com/4ZVdcB6kl7cC02-Z-_685X7R9eFdNnXjhaABDYGWEecyHMnMzEHHqoAgownw476VPYLv6F2fvg=s176-c-k-c0x00ffffff-no-rj",
+      "https://yt3.ggpht.com/45VIs0-IhYFq1kKstIQF3SzvgJdUJqSz42Zn50ljUWdwwZ4MeUtwUDwnJwM7lx8kxumV12OK=s176-c-k-c0x00ffffff-no-rj",
     channelLink: "https://www.youtube.com/channel/UCqrg-CrSVAjTYCy4f6LBD4g",
     subscribers: "292K",
     description:

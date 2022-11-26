@@ -116,10 +116,10 @@ router.post("/login", (req, res) => {
 
 /**
  * This handler handles user verification.
- * send GET Request at /verify
+ * send POST Request at /verify
  * header must contain auth token
  * */
-router.get("/verify", privateRoute, (req: MyUserRequest, res) => {
+router.post("/verify", privateRoute, (req: MyUserRequest, res) => {
   // RG: Middleware `privateRoute` adds the authenticated user to `req.user`. Remove password field
   req.user.password = undefined;
 
