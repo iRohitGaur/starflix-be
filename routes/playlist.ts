@@ -3,20 +3,41 @@ const router = express.Router();
 
 import {
   MyUserRequest,
-  User as UserInterface,
   Playlist as PlaylistInterface,
   PlaylistVideo,
 } from "../Interfaces";
 import { privateRoute } from "../middleware/privateRoute.js";
 
 import mongoose from "mongoose";
-const User: mongoose.Model<UserInterface> = mongoose.model("User");
 const Playlist: mongoose.Model<PlaylistInterface> = mongoose.model("Playlist");
 
 interface createPlaylistAndAddVideo {
   name: string;
   videoId: string;
 }
+
+// RG: returns all playlist of a user
+const getAllPlaylist = (userId: any, res: any) => {
+  Playlist.find({ owner: { _id: userId } })
+    .then((foundPlaylists) =>
+      res.status(200).json({ playlist: foundPlaylists })
+    )
+    .catch(() =>
+      res.status(422).json({ error: "Something went wrong. Please try again" })
+    );
+};
+
+/**
+ * This handler returns all playlist of a user.
+ * send GET Request at /user/playlist
+ * */
+router.get("/user/playlist", privateRoute, async (req: MyUserRequest, res) => {
+  // RG: Middleware `privateRoute` adds the authenticated user to `req.user`. Remove password field
+  req.user.password = undefined;
+
+  // RG: return all playlist of a user
+  getAllPlaylist(req.user._id, res);
+});
 
 /**
  * This handler creates a new playlist.
@@ -39,7 +60,10 @@ router.post("/user/playlist", privateRoute, (req: MyUserRequest, res) => {
   // RG: Save the newly created Playlist
   mongoPlaylist
     .save()
-    .then((savedPlaylist) => res.status(200).json({ playlist: savedPlaylist }))
+    .then((savedPlaylist) => {
+      // RG: return all playlist of a user
+      getAllPlaylist(req.user._id, res);
+    })
     .catch(() =>
       res.status(422).json({ error: "Something went wrong. Please try again" })
     );
@@ -73,9 +97,10 @@ router.post(
     // RG: Save the newly created Playlist
     mongoPlaylist
       .save()
-      .then((savedPlaylist) =>
-        res.status(200).json({ playlist: savedPlaylist })
-      )
+      .then((savedPlaylist) => {
+        // RG: return all playlist of a user
+        getAllPlaylist(req.user._id, res);
+      })
       .catch(() =>
         res
           .status(422)
@@ -122,7 +147,8 @@ router.put("/user/playlist", privateRoute, (req: MyUserRequest, res) => {
           .status(422)
           .json({ error: "Something went wrong. Please try again", err });
       }
-      return res.status(200).json(result);
+      // RG: return all playlist of a user
+      getAllPlaylist(req.user._id, res);
     });
 });
 
@@ -148,7 +174,8 @@ router.delete(
           playlist
             .remove()
             .then(() => {
-              res.status(200).json({ message: "playlist deleted" });
+              // RG: return all playlist of a user
+              getAllPlaylist(req.user._id, res);
             })
             .catch((err) => {
               res
